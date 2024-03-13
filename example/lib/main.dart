@@ -76,6 +76,15 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+void asdsad(
+  int b,
+  int c,
+  void Function(int a, int b) itemBuilder, {
+  required Widget children,
+  Widget Function({int? d, int? b})? builder,
+  int? z,
+}) {}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 

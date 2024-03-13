@@ -10,14 +10,21 @@ PluginBase createPlugin() => _VariablesOrderLint(
 class _VariablesOrderLint extends PluginBase {
   _VariablesOrderLint({
     required AlphabeticalHelper alphabeticalHelper,
-  }) : _constructorParametersSorter = ConstructorParametersSorter(
+  })  : _constructorParametersSorter = ConstructorParametersSorter(
+          alphabeticalHelper: alphabeticalHelper,
+        ),
+        _methodParametersSorter = MethodParametersSorter(
           alphabeticalHelper: alphabeticalHelper,
         );
 
   final ConstructorParametersSorter _constructorParametersSorter;
+  final MethodParametersSorter _methodParametersSorter;
 
   @override
   List<LintRule> getLintRules(CustomLintConfigs configs) => [
+        SortMethodParameters(
+          sorter: _methodParametersSorter,
+        ),
         SortConstructorParameters(
           sorter: _constructorParametersSorter,
         ),
